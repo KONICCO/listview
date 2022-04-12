@@ -41,7 +41,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
     'Rumah Adat Joglo',
     'Rumah Honai',
   ];
-  List<String>? foodListSearch;
+  List<String>? buildListSearch;
   final FocusNode _textFocusNode = FocusNode();
   TextEditingController? _textEditingController = TextEditingController();
   @override
@@ -55,10 +55,10 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.blue.shade300,
+            backgroundColor: Color.fromARGB(255, 238, 188, 25),
             title: Container(
               decoration: BoxDecoration(
-                  color: Colors.blue.shade200,
+                  color: Color.fromARGB(255, 245, 205, 75),
                   borderRadius: BorderRadius.circular(20)),
               child: TextField(
                 controller: _textEditingController,
@@ -74,20 +74,21 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                     contentPadding: EdgeInsets.all(8)),
                 onChanged: (value) {
                   setState(() {
-                    foodListSearch = buildList
+                    buildListSearch = buildList
                         .where(
                             (element) => element.contains(value.toLowerCase()))
                         .toList();
                     if (_textEditingController!.text.isNotEmpty &&
-                        foodListSearch!.length == 0) {
-                      print('foodListSearch length ${foodListSearch!.length}');
+                        buildListSearch!.length == 0) {
+                      print(
+                          'buildListSearch length ${buildListSearch!.length}');
                     }
                   });
                 },
               ),
             )),
         body: _textEditingController!.text.isNotEmpty &&
-                foodListSearch!.length == 0
+                buildListSearch!.length == 0
             ? Center(
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),
@@ -103,7 +104,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          'No results found,\nPlease try different keyword',
+                          'Data tidak ditemukan, \nSilahkan cari dengan keyword lain',
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.w600),
                         ),
@@ -119,7 +120,7 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                   crossAxisSpacing: 12,
                 ),
                 itemCount: _textEditingController!.text.isNotEmpty
-                    ? foodListSearch!.length
+                    ? buildListSearch!.length
                     : buildList.length,
                 itemBuilder: (ctx, index) {
                   return Padding(
@@ -127,13 +128,13 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
                     child: Row(
                       children: [
                         CircleAvatar(
-                          child: Icon(Icons.food_bank),
+                          child: Icon(Icons.home),
                         ),
                         SizedBox(
                           width: 10,
                         ),
                         Text(_textEditingController!.text.isNotEmpty
-                            ? foodListSearch![index]
+                            ? buildListSearch![index]
                             : buildList[index]),
                       ],
                     ),
