@@ -118,22 +118,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? buildListSearch!.length
                     : buildList.length,
                 itemBuilder: (ctx, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          child: Icon(Icons.food_bank),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(_textEditingController!.text.isNotEmpty
-                            ? buildListSearch![index]
-                            : buildList[index]),
-                      ],
-                    ),
-                  );
+                  return Container();
+                  // Container(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: Column(
+                  //     children: [
+                  //       CircleAvatar(
+                  //         child: Icon(Icons.food_bank),
+                  //       ),
+                  //       SizedBox(
+                  //         width: 4,
+                  //       ),
+                  //       Text(_textEditingController!.text.isNotEmpty
+                  //           ? buildListSearch![index]
+                  //           : buildList[index]),
+                  //     ],
+                  //   ),
+                  // );
                 }));
   }
 }

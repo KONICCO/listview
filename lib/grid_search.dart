@@ -115,15 +115,16 @@ class _GridSearchScreenState extends State<GridSearchScreen> {
               )
             : GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 3,
+                  crossAxisCount: 1,
+                  childAspectRatio: 6,
                   crossAxisSpacing: 12,
                 ),
                 itemCount: _textEditingController!.text.isNotEmpty
                     ? buildListSearch!.length
                     : buildList.length,
                 itemBuilder: (ctx, index) {
-                  return Padding(
+                  return 
+                  Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
